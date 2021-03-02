@@ -38,7 +38,7 @@ function App() {
     setNotes([ ...notes, formData ]);
     setFormData(initialFormState);
   }
-
+  
   async function deleteNote({ id }) {
     const newNotesArray = notes.filter(note => note.id !== id);
     setNotes(newNotesArray);
@@ -72,18 +72,18 @@ function App() {
       />
       <button onClick={createNote}>Create Note</button>
       <div style={{marginBottom: 30}}>
-        {
-          notes.map(note => (
-            <div key={note.id || note.name}>
-              <h2>{note.name}</h2>
-              <p>{note.description}</p>
-              <button onClick={() => deleteNote(note)}>Delete note</button>
-              {
-                note.image && <img src={note.image} style={{width: 400}} />
-              }
-            </div>
-          ))
-        }
+      {
+        notes.map(note => (
+          <div key={note.id || note.name}>
+            <h2>{note.name}</h2>
+            <p>{note.description}</p>
+            <button onClick={() => deleteNote(note)}>Delete note</button>
+            {
+              note.image && <img src={note.image} style={{width: 400}} />
+            }
+          </div>
+        ))
+      }
       </div>
       <AmplifySignOut />
     </div>
